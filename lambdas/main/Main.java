@@ -3,7 +3,9 @@ package com.lambdas.main;
 import java.util.*;
 import java.util.stream.Stream;
 
+import com.lambdas.clases.Alumno;
 import com.lambdas.interfaces.AMayus3;
+import com.lambdas.interfaces.Alumnos;
 import com.lambdas.interfaces.Cadena;
 import com.lambdas.interfaces.Meses;
 import com.lambdas.interfaces.NumParInpar;
@@ -192,7 +194,7 @@ public class Main {
 		
 		*/
 		
-		
+		/*
 		System.out.println("******************************* NIVELL 2 ****************************");
 		System.out.println("\n\r******************* Estan alfabeticamnet ****************************");
 		
@@ -302,6 +304,64 @@ public class Main {
 		
 		System.out.println("\n\r****** sumo ** resta ** multiplicacion ** division ************************************");
 		System.out.println(op.operacio(7, 5, "multiplicacion"));
+		
+		*/
+		
+		List<Alumno> alumnos = new ArrayList<Alumno>();
+		List<Alumno> lista = new ArrayList<Alumno>();
+		
+		Alumno alumno1 = new Alumno("Javier", 32, "JAVA", 4.8f);
+		Alumno alumno2 = new Alumno("Fernando", 20, "JAVASCRIPT", 7.2f);
+		Alumno alumno3 = new Alumno("Raul", 27, "PHP", 8.3f);
+		Alumno alumno4 = new Alumno("Ana", 31, "JAVA", 8.7f);
+		Alumno alumno5 = new Alumno("Pilar", 18, "MYSQL", 6.7f);
+		Alumno alumno6 = new Alumno("Laura", 24, "JAVA", 3.2f);
+		Alumno alumno7 = new Alumno("Rodrigo", 29, "PHP", 9.8f);
+		Alumno alumno8 = new Alumno("Alejandro", 22, "JAVASCRIPT", 5.3f);
+		Alumno alumno9 = new Alumno("Federico", 42, "JAVA", 8.4f);
+		Alumno alumno10 = new Alumno("Pablo", 19, "JAVA", 7.8f);
+		
+		alumnos.add(alumno1);
+		alumnos.add(alumno2);
+		alumnos.add(alumno3);
+		alumnos.add(alumno4);
+		alumnos.add(alumno5);
+		alumnos.add(alumno6);
+		alumnos.add(alumno7);
+		alumnos.add(alumno8);
+		alumnos.add(alumno9);
+		alumnos.add(alumno10);
+		
+		System.out.println("******************************* NIVELL 3 ****************************");
+		System.out.println("*********************************************************************");
+		
+		alumnos.forEach(a -> System.out.println("Nombre: "+a.getNombre()+" - Edad: "+a.getEdad()));
+		
+
+		System.out.println("*********************************************************************");
+		
+		alumnos.stream()
+					.filter(alu -> alu.getNombre().charAt(0) == 'a' || alu.getNombre().charAt(0) == 'A')
+					.forEach(a -> lista.add(a));
+		lista.forEach(alumn -> System.out.println(alumn.infoAlum()));
+		
+		System.out.println("*********************************************************************\n\r");
+		
+		alumnos.stream()
+					.filter(alu -> alu.getNota() >= 5f)
+					.forEach(a -> System.out.println(a.infoAlum()));
+		
+		System.out.println("*********************************************************************\n\r");
+		
+		alumnos.stream()
+					.filter(alu -> alu.getNota() >= 5f && alu.getCurso() != "PHP")
+					.forEach(a -> System.out.println(a.infoAlum()));
+		
+		System.out.println("*********************************************************************\n\r");
+		
+		alumnos.stream()
+					.filter(alu -> alu.getEdad() >= 18 && alu.getCurso() == "JAVA")
+					.forEach(a -> System.out.println(a.infoAlum()));
 		
 	}
 
